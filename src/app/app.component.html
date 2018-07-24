@@ -8,13 +8,28 @@
 <h2>Here are some links to help you start: </h2>
 <ul>
   <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+    <h2>
+      <a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a>
+    </h2>
   </li>
   <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+    <h2>
+      <a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a>
+    </h2>
   </li>
   <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+    <h2>
+      <a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a>
+    </h2>
   </li>
+  <!-- Realtime Databaseの反映箇所 -->
+  <div class="media">
+    <div class="media-left">
+      <a href="#" class="icon-rounded">{{(item | async)?.initial}}</a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{(item | async)?.name}}</h4>
+      <div>{{(item | async)?.content}}</div>
+    </div>
+  </div>
 </ul>
-
