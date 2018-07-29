@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RoomService } from './room.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +9,13 @@ import { RoomService } from './room.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  item: Observable<{}>;
-
   @Input() roomName: string = '';
 
-  constructor(public room: RoomService) {
+  constructor(public room: RoomService, private router: Router) {
   }
 
   public createRoom() {
     this.room.createNewRoom(this.roomName);
+    this.router.navigate(['room',  this.room.roomCode]);
   }
 }

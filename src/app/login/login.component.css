@@ -1,0 +1,31 @@
+.main-text {
+    font-size: 5em;
+    font-weight: bold;
+    color: white;
+}
+
+.main-input {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.field-full-width {
+    width: 100%;
+}
+
+.main-btn {
+    margin: 0 auto;
+    margin-top: 130px;
+    text-align: center;
+    align-items: center;
+}
+
+button[mat-stroked-button] {
+    padding: 15px 20px 15px 20px;
+    font-size: 30px;
+}

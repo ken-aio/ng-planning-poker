@@ -1,0 +1,19 @@
+<mat-list>
+  <mat-list-item>
+    <h1 class="font-main main-text">
+      Planning Poker
+    </h1>
+  </mat-list-item>
+  <form>
+    <mat-list-item class="main-input">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Input your poker room name" value="" required [(ngModel)]="roomName" name="roomName" #name="ngModel">
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item>
+      <div class="main-btn">
+        <button mat-stroked-button flex="15" color="basic" (click)="createRoom()" [disabled]="this.roomName.length == 0">Create new poker room</button>
+      </div>
+    </mat-list-item>
+  </form>
+</mat-list>

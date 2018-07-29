@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from '../../node_modules/angularfire2/database';
+import { Observable } from '../../node_modules/rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
-  room: AngularFireObject<any>;
+  roomRef: AngularFireObject<any>;
+  room: Observable<any>;
   roomCode: string;
 
   constructor(public db: AngularFireDatabase) { }
 
-  public createNewRoom(roomName: string) {
+  public createNewRoom(roomRefName: string) {
     this.roomCode = this.generateCode();
-    this.room = this.db.object(this.roomCode);
-    this.room.set({name: roomName});
+    this.roomRef = this.db.object(this.roomCode);
+    this.roomRef.set({name: roomRefName});
+  }
+
+  public get(code: string) {
+    this.roomRef = this.db.object(code);
+    this.room = this.roomRef.valueChanges();
   }
 
   private generateCode(): string {
