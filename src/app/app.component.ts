@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database'; // 追加
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RoomService } from './room.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   item: Observable<{}>;
-  title = 'app';
 
-  constructor(db: AngularFireDatabase) {
-    this.item = db.object('item').valueChanges();
+  @Input() roomName: string = '';
+
+  constructor(public room: RoomService) {
+  }
+
+  public createRoom() {
+    this.room.createNewRoom(this.roomName);
   }
 }

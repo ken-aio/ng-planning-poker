@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('~@angular/material/prebuilt-themes/pink-bluegrey.css');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.font-main {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* main */
+.container {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-image: url(/assets/img/main-back.jpg);
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    /* 左右中央寄せ */
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    /* 上下中央寄せ */
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+
+    overflow: hidden;/*ブラー効果でボヤけた部分を非表示*/
+    position: relative;
+    z-index: 0;
+}
+/*:beforeにぼかし効果を設定する*/
+.container::before{
+    content: '';
+    background: inherit;/*.bgImageで設定した背景画像を継承する*/
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+    position: absolute;
+    /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;/*重なり順序を一番下にしておく*/
+  }
