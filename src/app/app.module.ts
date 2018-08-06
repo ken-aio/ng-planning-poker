@@ -13,8 +13,9 @@ import { environment } from '../environments/environment';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatInputModule} from '@angular/material/input';
-import { RoomComponent } from './room/room.component';
+import { RoomComponent, UserDialogComponent } from './room/room.component';
 import { LoginComponent } from './login/login.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const appRoutes: Routes = [ // 追加
   { path: 'room/:code', component: RoomComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [ // 追加
     AppComponent,
     RoomComponent,
     LoginComponent,
+    UserDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,11 +44,15 @@ const appRoutes: Routes = [ // 追加
     MatButtonModule,
     MatListModule,
     MatInputModule,
+    MatDialogModule,
   ],
   providers: [
     MatButtonModule,
     MatListModule,
     MatInputModule,
+  ],
+  entryComponents: [
+    UserDialogComponent
   ],
   bootstrap: [AppComponent]
 })
